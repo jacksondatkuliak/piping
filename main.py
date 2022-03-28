@@ -20,8 +20,12 @@ window.show()
 
 def pingUpdate():
     ms = str(ping('10.2.144.208'))
-    helloMsg.setText(ms)
-    print(ms)
+    if ms == "None": 
+        helloMsg.setText("Destination Unreachable")
+        print("Destination Unreachable")
+    else:
+        helloMsg.setText(ms)
+        print(ms)
 
 timer = QtCore.QTimer()
 timer.timeout.connect(pingUpdate)    # helloMsg.setText(str(ping('10.2.144.207')))
